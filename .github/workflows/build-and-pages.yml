@@ -31,6 +31,7 @@ jobs:
           cd "$RUNNER_TEMP/ESP8266_RTOS_SDK"
           git submodule update --init components/json/cJSON components/lwip/lwip components/mbedtls/mbedtls components/mqtt/esp-mqtt
           ./install.sh
+          "$HOME/.espressif/python_env/rtos3.4_py3.10_env/bin/python" -m pip install 'setuptools<81'
 
       - name: Build firmware
         shell: bash
