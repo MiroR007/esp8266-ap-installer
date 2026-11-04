@@ -1,0 +1,17 @@
+menu "AP station control"
+
+config APP_AP_SSID
+    string "Test AP SSID"
+    default "ESP8266-Test-AP"
+
+config APP_AP_PASSWORD
+    string "Test AP password (8-63 characters)"
+    default "ChangeMe8266"
+
+config APP_AP_CHANNEL
+    int "Wi-Fi channel"
+    range 1 13
+    default 6
+
+endmenu
+
