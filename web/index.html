@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>تثبيت ESP8266 AP Control</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10.1.1/dist/web/install-button.js?module"></script>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0b1220; color: #e8eef8; font-family: system-ui, sans-serif; }
+    main { max-width: 620px; margin: auto; padding: 28px 18px; }
+    section { background: #151f31; border: 1px solid #2b3a54; border-radius: 20px; padding: 22px; }
+    h1 { margin-top: 0; font-size: 1.55rem; }
+    p, li { color: #b8c6da; line-height: 1.7; }
+    .install { display: flex; justify-content: center; margin: 24px 0; }
+    .note { padding: 12px; border-radius: 12px; background: #202d43; }
+    code { direction: ltr; unicode-bidi: embed; }
+  </style>
+</head>
+<body>
+  <main><section>
+    <h1>تثبيت برنامج ESP8266</h1>
+    <p>لوحة NodeMCU ESP8266 بذاكرة 4MB. وصّلها بكابل USB ثم اضغط الزر.</p>
+    <ol>
+      <li>استخدم Chrome أو Edge على الكمبيوتر.</li>
+      <li>أغلق أي برنامج يستعمل منفذ اللوحة.</li>
+      <li>اضغط Install واختر منفذ USB الخاص باللوحة.</li>
+    </ol>
+    <div class="install">
+      <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
+    </div>
+    <p class="note">بعد التثبيت اتصل بشبكة <code>ESP8266-Test-AP</code> بكلمة المرور <code>ChangeMe8266</code>، ثم افتح <code>http://192.168.4.1</code>.</p>
+    <p>هذا البرنامج يدير فقط الأجهزة المتصلة بنقطة الوصول الخاصة باللوحة، ولا يستهدف شبكات خارجية.</p>
+  </section></main>
+</body>
+</html>
+
