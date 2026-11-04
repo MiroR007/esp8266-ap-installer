@@ -27,8 +27,9 @@ jobs:
 
       - name: Install official ESP8266 RTOS SDK v3.4
         run: |
-          git clone --depth 1 --branch v3.4 --recursive https://github.com/espressif/ESP8266_RTOS_SDK.git "$RUNNER_TEMP/ESP8266_RTOS_SDK"
+          git clone --depth 1 --branch v3.4 https://github.com/espressif/ESP8266_RTOS_SDK.git "$RUNNER_TEMP/ESP8266_RTOS_SDK"
           cd "$RUNNER_TEMP/ESP8266_RTOS_SDK"
+          git submodule update --init components/json/cJSON components/lwip/lwip components/mbedtls/mbedtls components/mqtt/esp-mqtt
           ./install.sh
 
       - name: Build firmware
