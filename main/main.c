@@ -155,14 +155,14 @@ static esp_err_t send_json(httpd_req_t *req, const char *json)
 {
     httpd_resp_set_type(req, "application/json");
     httpd_resp_set_hdr(req, "Cache-Control", "no-store");
-    return httpd_resp_sendstr(req, json);
+    return httpd_resp_send(req, json, strlen(json));
 }
 
 static esp_err_t index_get(httpd_req_t *req)
 {
     httpd_resp_set_type(req, "text/html; charset=utf-8");
     httpd_resp_set_hdr(req, "Cache-Control", "no-store");
-    return httpd_resp_send(req, INDEX_HTML, HTTPD_RESP_USE_STRLEN);
+    return httpd_resp_send(req, INDEX_HTML, strlen(INDEX_HTML));
 }
 
 static esp_err_t stations_get(httpd_req_t *req)
@@ -317,7 +317,7 @@ static void start_access_point(void)
 void app_main(void)
 {
     esp_err_t nvs = nvs_flash_init();
-    if (nvs == ESP_ERR_NVS_NO_FREE_PAGES || nvs == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+    if (nvs == ESP_ERR_NVS_NO_FREE_PAGES) {
         ESP_ERROR_CHECK(nvs_flash_erase());
         ESP_ERROR_CHECK(nvs_flash_init());
     } else {
